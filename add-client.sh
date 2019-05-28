@@ -6,7 +6,7 @@ read DNS < ./dns.var
 read ENDPOINT < ./endpoint.var
 read VPN_SUBNET < ./vpn_subnet.var
 read SERVER_PUBLIC_KEY < /etc/wireguard/server_public.key
-ALLOWED_IP="0.0.0.0/0, ::/0"
+ALLOWED_IP="0.0.0.0/24, ::/24"
 
 # Set VPN user name
 if [ -z "$1" ]
