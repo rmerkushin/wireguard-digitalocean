@@ -2,7 +2,7 @@
 
 add-apt-repository ppa:wireguard/wireguard -y
 apt update
-apt install wireguard qrencode -y
+apt install wireguard-dkms wireguard-tools qrencode -y
 
 NET_FORWARD="net.ipv4.ip_forward=1"
 sysctl -w  ${NET_FORWARD}
@@ -18,7 +18,7 @@ SERVER_PUBKEY=$( echo $SERVER_PRIVKEY | wg pubkey )
 echo $SERVER_PUBKEY > ./server_public.key
 echo $SERVER_PRIVKEY > ./server_private.key
 
-read -p "Enter the endpoint (external ip and port) in format [ipv4:port] (e.g. 4.3.2.1:54321):" ENDPOINT
+read -p "Enter the endpoint (external ip and port) in format [ipv4:port] (e.g. 4.3.2.1:51820):" ENDPOINT
 if [ -z $ENDPOINT ]
 then
 echo "Empty endpoint. Exit"
